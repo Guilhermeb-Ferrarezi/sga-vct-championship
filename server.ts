@@ -32,7 +32,7 @@ function serveStaticAsset(pathname: string): Response | null {
 Bun.serve({
   hostname: "0.0.0.0",
   port,
-  fetch(request) {
+  async fetch(request) {
     const url = new URL(request.url);
 
     if (url.pathname === "/") {
@@ -48,6 +48,20 @@ Bun.serve({
       return assetResponse;
     }
 
-    return app.fetch(request, undefined, undefined);
+    const response = await app.fetch(request, undefined, undefined);
+    const contentType = response.headers.get("content-type") ?? "";
+
+    if (contentType.includes("text/html")) {
+      const headers = new Headers(response.headers);
+      headers.set("cache-control", "no-store, max-age=0, must-revalidate");
+      headers.delete("etag");
+      return new Response(response.body, {
+        status: response.status,
+        statusText: response.statusText,
+        headers,
+      });
+    }
+
+    return response;
   },
 });
