@@ -54,7 +54,7 @@ export function Hero() {
           <Stat label="DATA" value="05.07" sub="2026" />
           <Stat label="INSCRIÇÃO" value="R$29,90" sub="por jogador" />
           <Stat label="PREMIAÇÃO" value="R$4.250" sub="total" highlight />
-          <Stat label="TIMES" value="64+" sub="vagas iniciais" />
+          <Stat label="TIMES" value="64+" sub="vagas" />
         </div>
       </div>
 
