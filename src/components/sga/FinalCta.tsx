@@ -2,11 +2,13 @@ import heroImg from "@/assets/hero-arena.jpg";
 import logo from "@/assets/sga-logo.png";
 import { SignupDialogTrigger } from "@/components/sga/SignupDialog";
 
+const ASSET_VERSION = "20260511";
+
 export function FinalCta() {
   return (
     <section id="inscricao" className="relative py-40 px-6 overflow-hidden">
       <div className="absolute inset-0">
-        <img src={heroImg} alt="" loading="lazy" width={1920} height={1080} className="w-full h-full object-cover opacity-30" />
+        <img src={`${heroImg}?v=${ASSET_VERSION}`} alt="" loading="lazy" width={1920} height={1080} className="w-full h-full object-cover opacity-30" />
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
         <div className="absolute inset-0 grid-bg opacity-30" />
       </div>
@@ -40,7 +42,7 @@ export function Footer() {
     <footer className="border-t border-border py-12 px-6">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
         <div className="flex items-center gap-3">
-          <img src={logo} alt="Santos Games Arena" className="h-10 w-auto" />
+          <img src={`${logo}?v=${ASSET_VERSION}`} alt="Santos Games Arena" className="h-10 w-auto" />
           <div className="text-mono text-xs text-muted-foreground hidden md:block">Construindo o cenário competitivo regional.</div>
         </div>
         <div className="text-mono text-xs text-muted-foreground tracking-widest">

@@ -1,11 +1,13 @@
 import broadcastImg from "@/assets/broadcast.jpg";
 
+const ASSET_VERSION = "20260511";
+
 export function Broadcast() {
   return (
     <section id="transmissao" className="relative py-32 px-6 border-t border-border">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
         <div className="relative corner-cut overflow-hidden border border-border shadow-elevated">
-          <img src={broadcastImg} alt="Transmissão profissional" loading="lazy" width={1600} height={1000} className="w-full h-full object-cover" />
+          <img src={`${broadcastImg}?v=${ASSET_VERSION}`} alt="Transmissão profissional" loading="lazy" width={1600} height={1000} className="w-full h-full object-cover" />
           <div className="absolute top-4 left-4 flex items-center gap-2 bg-background/80 backdrop-blur px-3 py-1.5 text-mono text-xs">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse-glow" />
             <span className="text-primary font-bold">LIVE</span>

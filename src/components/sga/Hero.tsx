@@ -1,11 +1,13 @@
 import heroImg from "@/assets/hero-arena.jpg";
 import { SignupDialogTrigger } from "@/components/sga/SignupDialog";
 
+const ASSET_VERSION = "20260511";
+
 export function Hero() {
   return (
     <section id="top" className="relative min-h-screen flex items-center overflow-hidden pt-16">
       <div className="absolute inset-0">
-        <img src={heroImg} alt="Santos Games Arena" width={1920} height={1080} className="w-full h-full object-cover opacity-60" />
+        <img src={`${heroImg}?v=${ASSET_VERSION}`} alt="Santos Games Arena" width={1920} height={1080} className="w-full h-full object-cover opacity-60" />
         <div className="absolute inset-0 bg-gradient-hero" />
         <div className="absolute inset-0 grid-bg opacity-40" />
       </div>

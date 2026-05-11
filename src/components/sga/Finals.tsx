@@ -1,6 +1,8 @@
 import finalsImg from "@/assets/finals.jpg";
 import playerImg from "@/assets/player.jpg";
 
+const ASSET_VERSION = "20260511";
+
 export function Finals() {
   return (
     <section className="relative py-32 px-6 bg-surface/30 border-y border-border">
@@ -24,7 +26,7 @@ export function Finals() {
 
         <div className="grid lg:grid-cols-12 gap-6 items-stretch">
           <div className="lg:col-span-8 relative corner-cut overflow-hidden border border-border shadow-elevated group min-h-[520px] lg:min-h-[680px]">
-            <img src={finalsImg} alt="Final presencial na Santos Games Arena" loading="lazy" width={1600} height={1000} className="absolute inset-0 h-full w-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
+            <img src={`${finalsImg}?v=${ASSET_VERSION}`} alt="Final presencial na Santos Games Arena" loading="lazy" width={1600} height={1000} className="absolute inset-0 h-full w-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/15 to-transparent" />
             <div className="absolute bottom-6 left-6 right-6">
               <div className="text-mono text-xs tracking-widest text-primary mb-2">SANTOS GAMES ARENA</div>
@@ -33,7 +35,7 @@ export function Finals() {
           </div>
           <div className="lg:col-span-4 flex flex-col gap-6 lg:min-h-[680px]">
             <div className="relative corner-cut overflow-hidden border border-border min-h-[220px] lg:flex-[1.1]">
-              <img src={playerImg} alt="Foco competitivo" loading="lazy" width={1200} height={1500} className="absolute inset-0 h-full w-full object-cover object-top" />
+              <img src={`${playerImg}?v=${ASSET_VERSION}`} alt="Foco competitivo" loading="lazy" width={1200} height={1500} className="absolute inset-0 h-full w-full object-cover object-top" />
             </div>
             <div className="relative corner-cut p-8 border border-primary bg-primary/10 flex flex-col justify-between shadow-glow lg:flex-[0.9] min-h-[220px]">
               <div className="text-mono text-xs tracking-widest text-primary">/ EXPERIÊNCIA</div>
