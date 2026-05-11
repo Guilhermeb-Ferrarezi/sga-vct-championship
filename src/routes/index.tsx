@@ -11,6 +11,7 @@ import { Faq } from "@/components/sga/Faq";
 import { FinalCta, Footer } from "@/components/sga/FinalCta";
 
 const BASE_URL = import.meta.env.BASE_URL;
+const OG_IMAGE_URL = "https://cdn.santos-games.com/vct-sp/og-image.png?v=20260511";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -21,13 +22,13 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "VCT-SP · Valorant — Santos Games Arena" },
       { property: "og:description", content: "Online com transmissão profissional ao vivo. Final presencial na Santos Games Arena. R$4.250 em premiação." },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: `${BASE_URL}og-image.jpg` },
+      { property: "og:image", content: OG_IMAGE_URL },
       { property: "og:image:width", content: "1920" },
       { property: "og:image:height", content: "1080" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "VCT-SP · Valorant" },
       { name: "twitter:description", content: "Transmissão ao vivo. Final presencial na Santos Games Arena. R$4.250 em premiação." },
-      { name: "twitter:image", content: `${BASE_URL}og-image.jpg` },
+      { name: "twitter:image", content: OG_IMAGE_URL },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
