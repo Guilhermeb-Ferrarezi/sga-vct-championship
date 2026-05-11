@@ -39,6 +39,18 @@ Bun.serve({
       return Response.redirect(new URL("/vct-sp/", request.url), 301);
     }
 
+    if (url.pathname === "/vct-sp-reset" || url.pathname === "/vct-sp-reset/") {
+      return new Response(
+        `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Limpar cache</title><style>body{font-family:system-ui,sans-serif;background:#0f0a0a;color:#fff;display:grid;place-items:center;min-height:100vh;margin:0;padding:24px;text-align:center}p{max-width:42rem;line-height:1.5}a,button{font:inherit}</style></head><body><div><h1>Limpeza do VCT-SP</h1><p>Desregistrando service workers e apagando caches locais. Depois, a página principal vai abrir de novo.</p><button id="run">Executar limpeza</button><p id="status"></p></div><script>const status=document.getElementById('status');document.getElementById('run').onclick=async()=>{try{status.textContent='Limpando...';if('serviceWorker'in navigator){const regs=await navigator.serviceWorker.getRegistrations();await Promise.all(regs.map(r=>r.unregister()));}if('caches'in window){for(const key of await caches.keys())await caches.delete(key);}try{localStorage.clear();sessionStorage.clear();}catch(e){}status.textContent='Pronto. Redirecionando...';setTimeout(()=>location.replace('/vct-sp/?fresh=1'),500);}catch(e){status.textContent='Falhou ao limpar. Indo para o site mesmo assim.';setTimeout(()=>location.replace('/vct-sp/?fresh=1'),1000);}};</script></body></html>`,
+        {
+          headers: {
+            "content-type": "text/html; charset=utf-8",
+            "cache-control": "no-store, max-age=0, must-revalidate",
+          },
+        },
+      );
+    }
+
     if (url.pathname === "/vct-sp") {
       return Response.redirect(new URL("/vct-sp/", request.url), 301);
     }
