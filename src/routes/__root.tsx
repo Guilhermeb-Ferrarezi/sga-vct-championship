@@ -8,6 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 
+import appCssText from "../styles.css?inline";
 import appCss from "../styles.css?url";
 
 const ASSET_VERSION = "20260511";
@@ -100,6 +101,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
     <html lang="pt-BR">
       <head>
         <HeadContent />
+        <style dangerouslySetInnerHTML={{ __html: appCssText }} />
       </head>
       <body>
         {children}
